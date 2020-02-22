@@ -1,12 +1,21 @@
 <!-- liaison de donnée du component vers le html : interpolation -->
-{{title}}
+<!--{{title}}
 <br>
 {{id}}
-
-<br>
+-->
+<!--
+<br> -->
 <!-- liaison des propriétés-->
+<!--
 <input [value]="title" class="form-control">
 <br>
-<!-- event binding-->
+-->
+<!-- event binding
 <button class="btn btn-primary" (click)="inc()">Add</button>
-<app-todo></app-todo>
+-->
+<nav class="nav-bar">
+    <b [routerLink]="['/todo']">Todo</b>   |  
+    <b [routerLink]="['/register']">Register</b>
+    <input>
+</nav>
+<router-outlet></router-outlet>

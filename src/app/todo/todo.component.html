@@ -1,16 +1,26 @@
 <h2>To do App</h2>
 <div class="row col-md-12">
     <div class="col-md-8">
-        <input [(ngModel)]="content" class="form-control">
+        <input [(ngModel)]="item.content" class="form-control" (keyup.enter)="addTodo()">
     </div>
     <div class="col-md-4">
-        <button class="btn btn-primary">Add</button>
+        <button class="btn btn-primary" (click)="addTodo()">Add</button>
     </div>
 </div>
 <div class="row">
     <ul>
-        <li>{{content}}</li>
-        <li></li>
-        <li></li>
+        <li *ngFor="let element of list; let i = index"  
+        [style.background]="element.isDone? '#0080003d' : ''"
+        [style.text-decoration]="element.isRemoved? 'line-through' : ''"
+        >
+           {{i+1}} - {{element.content}}
+            <br>
+            {{element.createdAt | date:'dd-MM-yyyy HH:m'}}
+            <button class="btn btn-danger" [disabled]="element.isDone" style="float : right" (click)="remove(i)">
+                Remove</button>
+            <button class="btn btn-success"   style="float : right" (click)="done(i)">
+                Done</button>
+        </li>
     </ul>
 </div>
+
