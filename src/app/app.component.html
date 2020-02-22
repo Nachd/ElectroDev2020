@@ -1,0 +1,12 @@
+<!-- liaison de donnée du component vers le html : interpolation -->
+{{title}}
+<br>
+{{id}}
+
+<br>
+<!-- liaison des propriétés-->
+<input [value]="title" class="form-control">
+<br>
+<!-- event binding-->
+<button class="btn btn-primary" (click)="inc()">Add</button>
+<app-todo></app-todo>
