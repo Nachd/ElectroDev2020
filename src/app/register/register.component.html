@@ -1,1 +1,22 @@
-<p>register works!</p>
+<div class="row">
+
+    <div class="col-md-6 offset-md-3">
+        <h2> <span class="fa fa-user"></span> Register  </h2>
+
+        <div class="form-group">
+            <form [formGroup]="register_form">
+                <label>E-mail :</label>
+                <input formControlName="form_email" [(ngModel)]="user.email" class="form-control" placeholder="Email"  email="true" required>
+
+                <label>Password : <span class="fa fa-eye" (click)="show_hide_password()"></span> </label>
+                <input formControlName="form_pass" [(ngModel)]="user.password" class="form-control" placeholder="Password" [type]="pass_access" minlength="6" required>
+
+                <label>Password Confirmation :</label>
+                <input formControlName="form_conf" [(ngModel)]="user.password2" class="form-control"
+                placeholder="Password Confirmation" minlength="6" type="password" required>
+                <p style="color : red" *ngIf=" user.password && user.password2 && user.password != user.password2"> passwords are invalid</p>
+                <button type="submit" [disabled]="!register_form.valid || user.password != user.password2" class="btn btn-primary" (click)="register()">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
