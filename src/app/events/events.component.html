@@ -1,0 +1,59 @@
+<h2>{{ 'list_events' | translate}}</h2>
+<hr>
+<div class="row">
+    <div class="col-md-3">
+        <label>Select your category</label>
+        <select class="form-control" (change)="filterByCategory($event.target.value)">
+            <option>All</option>
+            <option value="1"> Industrial</option>
+            <option value="2"> Developement</option>
+            <option value="3"> General</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label>Price</label>
+        <select class="form-control" (change)="filterByPrice($event.target.value)">
+            <option value="asc"> Ascendent</option>
+            <option value="desc"> Descendent</option>
+        </select>
+    </div>
+    <div class="col-md-3">
+        <label>Search</label>
+        <input class="form-control" (keyup)="search($event.target.value)">
+    </div>
+    
+</div>
+<br>
+<table class="table">
+    <thead>
+            <th> #   </th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Price</th>
+            <th></th>
+            <th></th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let event of events ; let i=index">
+            <td>{{event.id}}</td>
+            <td>{{event.nameEn}}</td>
+            <td class="description">{{event.description}}</td>
+            <td>{{event.category.categoryNameEn}}</td>
+            <td>{{event.startDate | date}}</td>
+            <td>{{event.endDate | date}}</td>
+            <td>{{event.price | number:'1.3-3'}}</td>
+            <td>
+                <span class="fa fa-trash" style="color: red;" (click)="remove(i)"></span>
+            </td>
+            <td>
+                <span (click)="moveUp(i)">Up</span>
+                <span (click)="moveDown(i)">Down</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-warning" (click)="calculate()">Calculate</button>
+{{total}}

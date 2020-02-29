@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { TodoComponent } from './todo/todo.component';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
+import { EventsComponent } from './events/events.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,9 @@ const routes: Routes = [
         path : 'todo',
         component : TodoComponent,
         
+      },{
+        path : 'events',
+        component : EventsComponent
       }
     ]
   }
