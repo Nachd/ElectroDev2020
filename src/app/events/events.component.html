@@ -46,7 +46,17 @@
     <tbody>
         <tr *ngFor="let event of events ; let i=index">
             <td>{{event.id}}</td>
-            <td>{{ translate.currentLang == 'en' ? event.nameEn : event.nameFr}}</td>
+            <td [ngSwitch]="translate.currentLang">
+                <span *ngSwitchCase="'en'">
+                    {{event.nameEn}}
+                </span>
+                <span *ngSwitchCase="'fr'">
+                    {{event.nameFr}}
+                </span>
+                <span *ngSwitchDefault>
+                    {{event.nameEn}}
+                </span>
+            </td>
             <td class="description">{{event.description}}</td>
             <td>{{ translate.currentLang == 'en' ? event.category?.categoryNameEn : event.category?.categoryNameFr}}</td>
             <td>{{event.startDate | date}}</td>
