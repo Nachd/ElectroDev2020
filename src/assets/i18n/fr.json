@@ -1,4 +1,14 @@
 {
     "list_events" : "Liste des évènements",
-    "category_label" : "Choisir une categorie"
+    "category_label" : "Choisir une categorie",
+    "eventname" : "event.nameFr",
+    "event-details" : "Détails de l'évenement",
+    "event-name-en" : "Nom en Anglais",
+    "event-name-fr" : "Nom en Français",
+    "start-date" : "Date de début",
+    "end-date" : "Date de cloture",
+    "price" : "Prix",
+    "category" : "Catégorie",
+    "description" : "Description",
+    "save" : "Enregistrer"
 }

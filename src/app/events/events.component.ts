@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Events } from 'src/app/all-events';
 import Swal from 'sweetalert2';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -8,11 +9,13 @@ import Swal from 'sweetalert2';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate : TranslateService) { }
 
+  showModal = false;
   events: any[] = Events;
   events_total = Events;
   total;
+  objet : any  = {}
   ngOnInit(): void {
     console.log(this.events)
   }
@@ -91,4 +94,34 @@ export class EventsComponent implements OnInit {
 
   }
 
+
+  show(){
+    this.showModal = true;
+  }
+  closeModal(){
+    console.log("Action in parent from child")
+    this.showModal = false;
+    console.log(this.objet)
+    this.objet = {}
+  }
+  saveModal(){
+   
+    if(this.objet.id){
+      //update 
+    }else{
+      this.objet.id = this.events[this.events.length -1].id + 1
+      this.events.push(this.objet);
+    }
+    this.objet = {}
+   // this.closeModal();
+  }
+  editEvent(evt){
+    this.objet = evt;
+    this.showModal = true;
+  }
 }
+
+
+
+
+

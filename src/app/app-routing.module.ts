@@ -4,9 +4,11 @@ import { TodoComponent } from './todo/todo.component';
 import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
 import { EventsComponent } from './events/events.component';
+import { EventDetails2Component } from './event-details2/event-details2.component';
 
 
 const routes: Routes = [
+  
   
   {
     path : 'register',
@@ -24,6 +26,12 @@ const routes: Routes = [
       },{
         path : 'events',
         component : EventsComponent
+      },{
+        path : 'add-event',
+        component : EventDetails2Component
+      },{
+        path : 'edit-event/:id',
+        component : EventDetails2Component
       }
     ]
   }

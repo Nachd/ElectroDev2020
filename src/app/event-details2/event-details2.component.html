@@ -1,0 +1,38 @@
+<div class="col-md-8 offset-md-2">
+    <h2> {{ 'event-details' | translate}}</h2>
+
+    <div class="form-group">
+        <form [formGroup]="eventForm">
+        <label>{{'event-name-en' | translate}}</label>
+        <input class="form-control" formControlName="nameEn" [(ngModel)]="event.nameEn" required >
+
+        
+        <label>{{'event-name-fr' | translate}}</label>
+        <input class="form-control" formControlName="nameFr" [(ngModel)]="event.nameFr" required>
+
+
+        
+        <label>{{'price' | translate}}</label>
+        <input class="form-control" formControlName="price" [(ngModel)]="event.price" required >
+
+        
+        <label>{{'start-date' | translate}}</label>
+        <input class="form-control" type="date" formControlName="startDate" [(ngModel)]="event.startDate" >
+
+        
+        <label>{{'end-date' | translate}}</label>
+        <input class="form-control" type="date" formControlName="endDate" [(ngModel)]="event.endDate" [min]="event.startDate">
+
+        
+      
+        
+        <label>{{'category' | translate}}</label>
+        <select class="form-control" formControlName="categoryId" [(ngModel)]="event.categoryId">
+            <option>c1</option>
+            <option>c2</option>
+        </select>
+
+        <button  class="form-control btn btn-success"> {{'save' | translate}}</button>
+   </form>
+    </div>
+</div>

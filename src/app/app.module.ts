@@ -13,6 +13,8 @@ import { EventsComponent } from './events/events.component';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { EventDetailsComponent } from './event-details/event-details.component';
+import { EventDetails2Component } from './event-details2/event-details2.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -23,7 +25,9 @@ export function createTranslateLoader(http: HttpClient) {
     TodoComponent,
     RegisterComponent,
     LayoutComponent,
-    EventsComponent
+    EventsComponent,
+    EventDetailsComponent,
+    EventDetails2Component
   ],
   imports: [
     BrowserModule,

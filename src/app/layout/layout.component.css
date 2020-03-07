@@ -2,6 +2,9 @@
     
     color: white;
     background: #7171e4;
+    height: 50px;
+    padding: 8px;
+    margin: 0px;
 }
 .my_page{
     height: -webkit-fill-available;

@@ -21,7 +21,14 @@
         <label>Search</label>
         <input class="form-control" (keyup)="search($event.target.value)">
     </div>
-    
+    <div class="col-md-1">
+        <label>&nbsp;</label>
+        <button class="btn btn-success form-control" (click)="show()">Open</button>
+    </div>
+    <div class="col-md-2">
+        <label>&nbsp;</label>
+        <button class="btn btn-success form-control" [routerLink]="['/formation/add-event']">Add New</button>
+    </div>
 </div>
 <br>
 <table class="table">
@@ -39,13 +46,14 @@
     <tbody>
         <tr *ngFor="let event of events ; let i=index">
             <td>{{event.id}}</td>
-            <td>{{event.nameEn}}</td>
+            <td>{{ translate.currentLang == 'en' ? event.nameEn : event.nameFr}}</td>
             <td class="description">{{event.description}}</td>
-            <td>{{event.category.categoryNameEn}}</td>
+            <td>{{ translate.currentLang == 'en' ? event.category?.categoryNameEn : event.category?.categoryNameFr}}</td>
             <td>{{event.startDate | date}}</td>
             <td>{{event.endDate | date}}</td>
             <td>{{event.price | number:'1.3-3'}}</td>
             <td>
+                <span class=" fa fa-edit" (click)="editEvent(event)"></span>
                 <span class="fa fa-trash" style="color: red;" (click)="remove(i)"></span>
             </td>
             <td>
@@ -57,3 +65,5 @@
 </table>
 <button class="btn btn-warning" (click)="calculate()">Calculate</button>
 {{total}}
+
+<app-event-details *ngIf="showModal" [element]="objet" (save)="saveModal()" (exit)="closeModal()" ></app-event-details>

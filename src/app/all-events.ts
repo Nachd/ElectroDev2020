@@ -7,7 +7,7 @@ export const Events = [
         "category" : {
             "categoryId" : 2,
             "categoryNameEn" : "developement",
-            "catgeoryNameFr" : "développement",
+            "categoryNameFr" : "développement",
             
         },
         "startDate" : new Date(2020,2,8),
@@ -22,7 +22,7 @@ export const Events = [
         "category" : {
             "categoryId" : 1,
             "categoryNameEn" : "Industrial",
-            "catgeoryNameFr" : "Industriel",
+            "categoryNameFr" : "Industriel",
             
         },
         "startDate" : new Date(2020,3,8),
@@ -38,7 +38,7 @@ export const Events = [
         "category" : {
             "categoryId" : 2,
             "categoryNameEn" : "Development",
-            "catgeoryNameFr" : "Développement",
+            "categoryNameFr" : "Développement",
             
         },
         "startDate" : new Date(2020,4,8),
@@ -53,7 +53,7 @@ export const Events = [
         "category" : {
             "categoryId" : 3,
             "categoryNameEn" : "General",
-            "catgeoryNameFr" : "Générale",
+            "categoryNameFr" : "Générale",
             
         },
         "startDate" : new Date(2019,10,8),

@@ -1,4 +1,15 @@
 {
     "list_events" : "List of events",
-    "category_label" : "Select your category"
+    "category_label" : "Select your category",
+
+    "eventname" : "event.nameEn",
+    "event-details" : "Event Details",
+    "event-name-en" : "English Event Name",
+    "event-name-fr" : "French Event Name",
+    "start-date" : "Start Date",
+    "end-date" : "End Date",
+    "price" : "Price",
+    "category" : "Catgeory",
+    "description" : "Description",
+    "save" : "Save"
 }
