@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from '../user';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { User } from '../user';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apis : AuthService , private router : Router) { }
   pass_access = "password"
 
   register_form : FormGroup;
@@ -38,6 +40,29 @@ export class LoginComponent implements OnInit {
 
   register(){
     console.log(this.user)
+
+    this.apis.loginEmailPass(this.user.email , this.user.password)
+    .then((data)=> {console.log(data);
+    localStorage.setItem('loggedIn' , 'true')
+    this.router.navigate(['/formation'])
+    })
+    .catch(err=> console.log(err))
+    
+  }
+
+  google(){
+    
+    this.apis.signInGoogle()
+    .then((data)=> console.log(data))
+    .catch(err=> console.log(err))
+    
+  }
+
+  facebook(){
+  
+    this.apis.signInFacebook()
+    .then((data)=> console.log(data))
+    .catch(err=> console.log(err))
     
   }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { User } from '../user';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-register',
@@ -9,7 +10,7 @@ import { User } from '../user';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private apis : AuthService) { }
   pass_access = "password"
 
   register_form : FormGroup;
@@ -40,6 +41,10 @@ export class RegisterComponent implements OnInit {
   register(){
     console.log(this.user)
     
+    this.apis.registerEmailPass(this.user.email , this.user.password)
+    .then((data)=>{
+      console.log(data)
+    })
   }
 
  

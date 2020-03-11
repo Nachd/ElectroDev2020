@@ -15,5 +15,10 @@
                 <button type="submit" [disabled]="!register_form.valid" class="btn btn-primary" (click)="register()">Sign up</button>
             </form>
         </div>
+
+        <button class="form-control btn btn-danger" (click)="google()">
+            Sign In with Google</button>
+            <button class="form-control btn btn-primary" (click)="facebook()">
+                Sign In with facebook</button>
     </div>
 </div>
