@@ -10,13 +10,16 @@ import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
 import { EventsComponent } from './events/events.component';
 
-
-import { environment } from '../environments/environment';
+import { AngularFireModule} from 'angularfire2';
+import { AngularFirestoreModule} from 'angularfire2/firestore';
+import { AngularFireAuthModule} from 'angularfire2/auth'
+import {environment} from '../environments/environment';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { EventDetailsComponent } from './event-details/event-details.component';
 import { EventDetails2Component } from './event-details2/event-details2.component';
+import { LoginComponent } from './login/login.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -30,7 +33,8 @@ export function createTranslateLoader(http: HttpClient) {
     LayoutComponent,
     EventsComponent,
     EventDetailsComponent,
-    EventDetails2Component
+    EventDetails2Component,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +49,10 @@ export function createTranslateLoader(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
+
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireAuthModule
        
   ],
   providers: [DatePipe],
