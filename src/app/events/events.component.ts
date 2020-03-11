@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Events } from 'src/app/all-events';
+
 import Swal from 'sweetalert2';
 import { TranslateService } from '@ngx-translate/core';
+import { EventService } from '../event.service';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -9,15 +10,25 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor(public translate : TranslateService) { }
+  constructor(public translate : TranslateService ,
+    private apis : EventService
+    ) { }
 
   showModal = false;
-  events: any[] = Events;
-  events_total = Events;
+  events: any[];
+  events_total;
   total;
   objet : any  = {}
   ngOnInit(): void {
-    console.log(this.events)
+    this.apis.getAllEvents()
+    .subscribe(
+      (data : any[])=>{
+        // en cas de success
+        this.events = data;
+      }, error=> alert(error.statusText))
+
+
+
   }
   filterByCategory(value) {
     if (value == 'All') {
@@ -74,7 +85,7 @@ export class EventsComponent implements OnInit {
     })
     console.log("finish")
   }
-  remove(i){
+  remove(id){
    Swal.fire({
      title : "Are you sure ?",
      text : "",
@@ -86,9 +97,16 @@ export class EventsComponent implements OnInit {
    }).then((action)=>{
      if(action.value){
        //remove item
-      this.events_total.splice(i , 1);
+      this.apis.removeEvent(id)
+      .subscribe((data)=>{
+        this.ngOnInit()
+        Swal.fire("Deleted" , "" , "success")
+      },error=> console.log(error))
+
+
+     /* this.events_total.splice(i , 1);
       this.events = this.events_total;
-       Swal.fire("Deleted" , "" , "success")
+      */
      }
    })
 

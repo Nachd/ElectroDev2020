@@ -4,8 +4,8 @@ export class Event {
 
     nameEn : string;
     nameFr : string;
-    startDate : Date;
-    endDate : Date;
+    startDate : any;
+    endDate : any;
     description : string;
     price : number;
     categoryId : Category;

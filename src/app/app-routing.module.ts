@@ -7,9 +7,9 @@ import { EventsComponent } from './events/events.component';
 import { EventDetails2Component } from './event-details2/event-details2.component';
 
 
+
 const routes: Routes = [
-  
-  
+
   {
     path : 'register',
     component : RegisterComponent,

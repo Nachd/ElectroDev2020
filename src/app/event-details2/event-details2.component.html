@@ -17,22 +17,24 @@
 
         
         <label>{{'start-date' | translate}}</label>
-        <input class="form-control" type="date" formControlName="startDate" [(ngModel)]="event.startDate" >
+        <input class="form-control" type="date" id="date" formControlName="startDate" [(ngModel)]="event.startDate"  >
 
         
         <label>{{'end-date' | translate}}</label>
-        <input class="form-control" type="date" formControlName="endDate" [(ngModel)]="event.endDate" [min]="event.startDate">
+        <input class="form-control" type="date" formControlName="endDate" [(ngModel)]="event.endDate" >
 
         
       
         
         <label>{{'category' | translate}}</label>
         <select class="form-control" formControlName="categoryId" [(ngModel)]="event.categoryId">
-            <option>c1</option>
-            <option>c2</option>
+            <option *ngFor="let cat of categories" 
+            [value]="cat._id" [selected]="cat._id == event.categoryId?._id" > 
+                {{ cat.categoryNameEn}}</option>
+            
         </select>
 
-        <button  class="form-control btn btn-success"> {{'save' | translate}}</button>
+        <button  class="form-control btn btn-success" (click)="save()"> {{'save' | translate}}</button>
    </form>
     </div>
 </div>

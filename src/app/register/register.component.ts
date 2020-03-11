@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { User } from '../user';
 
 @Component({
@@ -22,6 +22,13 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  testpass(){
+    if(this.user.password != this.user.password2){
+     
+     this.register_form.get('form_conf').setErrors({unavailable : true})
+    }
+  }
+
   show_hide_password(){
     if(this.pass_access == "password"){
       this.pass_access = "text"
@@ -32,6 +39,7 @@ export class RegisterComponent implements OnInit {
 
   register(){
     console.log(this.user)
+    
   }
 
  

@@ -12,10 +12,10 @@
                 <input formControlName="form_pass" [(ngModel)]="user.password" class="form-control" placeholder="Password" [type]="pass_access" minlength="6" required>
 
                 <label>Password Confirmation :</label>
-                <input formControlName="form_conf" [(ngModel)]="user.password2" class="form-control"
+                <input formControlName="form_conf" (keyup)="testpass()" [(ngModel)]="user.password2" class="form-control"
                 placeholder="Password Confirmation" minlength="6" type="password" required>
                 <p style="color : red" *ngIf=" user.password && user.password2 && user.password != user.password2"> passwords are invalid</p>
-                <button type="submit" [disabled]="!register_form.valid || user.password != user.password2" class="btn btn-primary" (click)="register()">Sign up</button>
+                <button type="submit" [disabled]="!register_form.valid" class="btn btn-primary" (click)="register()">Sign up</button>
             </form>
         </div>
     </div>
